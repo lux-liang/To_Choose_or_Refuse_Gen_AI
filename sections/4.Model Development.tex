@@ -1,0 +1,114 @@
+% ---------- 4. Model Development  ----------
+\section{Model Development }
+
+We develop a modular, task-based modeling framework that maps occupations to weighted task sets and evaluates the impact of Generative AI through interpretable task parameters. Formally, each occupation is represented as a finite set of tasks, where task weights reflect relative importance and time allocation. Task attributes are extracted from standardized occupational databases and serve as inputs to subsequent substitution and augmentation models.
+
+By operating at the task level, the model captures heterogeneity within occupations and enables scenario-based projections of employment evolution under different Gen-AI adoption pathways. The resulting outputs provide a quantitative foundation for curriculum adjustment and institutional decision-making.
+ 
+\subsection{Task Decomposition Model }
+
+Each occupation is decomposed into a finite set of representative tasks $\{t_i\}_{i=1}^{n}$.
+For each task, a weight $w_i$ is assigned to reflect its relative importance and time allocation within the occupation.
+
+Task weights are constructed using O*NET task importance and frequency indicators and normalized such that
+\begin{equation}
+\sum_{i=1}^{n} w_i = 1 
+\end{equation}
+In addition to weights, each task is associated with a structured attribute vector $\mathbf{f}_i$, capturing interpretable characteristics such as
+cognitive complexity, physical dependency, social interaction requirements,
+and consequence of error.
+These attributes serve as the foundation for modeling task-level AI substitution,augmentation, and verification requirements.
+
+As shown in Figure~\ref{fig:occupation_task_decomposition}, each occupation is decomposed into weighted tasks that reflect relative importance and time allocation.
+This decomposition is key to modeling task-level AI substitution and augmentation effects.
+\begin{figure}
+\centering
+\includegraphics[width=0.55\textwidth]{occupation_task_decomposition}
+\caption{Task Decomposition for Representative Occupations}
+\label{fig:occupation_task_decomposition}
+\end{figure}
+
+This task decomposition structure allows for the quantification of task-level impacts and provides a clear framework for assessing how AI will augment or replace specific tasks within each occupation.
+
+\subsection{Gen-AI Impact Index}
+
+For each task $t_i$, we define a Gen-AI impact index $\Delta_i$ that measures
+the net effect of AI adoption on task performance.
+This index captures both productivity gains from automation or augmentation
+and additional costs arising from verification, error correction, and oversight.
+
+Formally, the impact index is defined as the difference between the expected
+AI-assisted task cost and the human-only baseline:
+\begin{equation}
+\Delta_i = C_i^{H} - C_i^{AI},
+\end{equation}
+where $C_i^{H}$ denotes the cost of completing task $i$ using purely human labor,
+and $C_i^{AI}$ represents the expected cost under AI assistance while ensuring
+qualified delivery.
+
+Positive values of $\Delta_i$ indicate net AI augmentation,
+while negative values suggest that AI use becomes inefficient due to
+verification burdens or error risks.Figure~\ref{fig:ai_impact_index} illustrates the Gen-AI impact index for different tasks in the selected occupations. Positive values of $\Delta_i$ indicate AI augmentation, while negative values suggest that AI use becomes inefficient due to verification and error correction requirements.
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth]{ai_impact_index}
+\caption{AI Impact Index for Different Tasks in Selected Occupations}
+\label{fig:ai_impact_index}
+\end{figure}
+
+This graph visually represents how Gen-AI's impact varies across tasks, with certain tasks benefiting from automation and others being hindered by verification bottlenecks.
+
+\subsection{Employment Projection Model}
+
+Task-level impacts are aggregated to the occupational level using task weights.
+The average net AI benefit for an occupation is defined as
+\begin{equation}
+\Delta_{\text{occ}} = \sum_{i=1}^{n} w_i \Delta_i.
+\end{equation}
+
+AI adoption at the occupational level is modeled as a bounded dynamic process,
+where higher net benefits accelerate adoption, while verification congestion
+imposes nonlinear penalties.
+Employment evolution is then expressed as
+\begin{equation}
+E(t+1) = E(t)\left[1 + g_{\text{base}} + \eta \cdot G(A(t)) - \delta \right],
+\end{equation}
+where $A(t)$ denotes the effective AI adoption rate and $G(\cdot)$ captures
+the net contribution of AI after accounting for verification capacity constraints.
+
+When verification demand exceeds system capacity, congestion effects amplify
+error-related costs, causing $G(A)$ to decrease with further adoption.
+This mechanism generates a reversal threshold beyond which additional AI use
+reduces employment resilience.
+
+Figure~\ref{fig:employment_vs_ai_adoption} presents the projected employment trends as a function of Gen-AI adoption rates. The curve illustrates how employment levels fluctuate as AI adoption increases, with a notable reversal threshold beyond which further AI adoption leads to diminishing employment benefits.
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth]{employment_vs_ai_adoption}
+\caption{Projected Employment Trends vs. AI Adoption Rate}
+\label{fig:employment_vs_ai_adoption}
+\end{figure}
+
+
+This figure captures the dynamic relationship between AI adoption and employment, illustrating the critical reversal threshold where the marginal benefits of AI use decrease due to verification capacity constraints.
+
+\subsection{Education--Career Alignment Model}
+
+Formally, educational intervention increases effective verification capacity,thereby shifting the functional response $G(A)$ upward for a given adoption level.
+Educational interventions are incorporated by allowing curriculum design to modify key task parameters, particularly verification efficiency and oversight capacity.
+Improved training reduces error probabilities, shortens verification time,and effectively expands system-level verification capacity.
+
+As a result, educational strategies shift the reversal threshold to the right,enabling higher sustainable AI adoption while preserving positive employment outcomes.
+This linkage provides a quantitative basis for evaluating curriculum reform,enrollment adjustment, and long-term workforce resilience.
+As shown in Figure~\ref{fig:education_intervention_threshold}, educational interventions can shift the reversal threshold to the right, allowing for higher AI adoption without a decline in employment resilience. This shift occurs by enhancing the verification and oversight capacities of graduates.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth]{education_intervention_threshold}
+\caption{Impact of Educational Intervention on the Reversal Threshold}
+\label{fig:education_intervention_threshold}
+\end{figure}
+
+
+This chart illustrates the potential long-term benefits of integrating educational reforms focused on verification skills, which help delay the negative impact of AI adoption on employment.
+

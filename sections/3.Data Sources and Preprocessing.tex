@@ -1,0 +1,42 @@
+% ---------- 3. Model Development ----------
+\section{Data Sources and Preprocessing }
+
+This study integrates multiple publicly available and widely cited data sources to inform model calibration, task weighting, and scenario analysis. Data are selected to ensure transparency, reproducibility, and alignment with the task-level modeling framework.
+
+\subsection{Employment and Labor Market Data}
+
+Baseline employment levels, growth trends, and occupational outlooks are informed by labor market statistics published by authoritative institutions, including the U.S. Bureau of Labor Statistics (BLS), the Organization for Economic Co-operation and Development (OECD), and the World Economic Forum (WEF). These sources provide aggregate indicators of employment scale, historical growth rates, and projected demand under technological change.
+
+Rather than relying on precise point forecasts, these data are used to establish relative demand trends and to calibrate comparative employment indices across occupations.
+
+\subsection{Occupational Task Structure Data}
+
+Task composition and task importance are derived from the Occupational Information Network (O*NET) database, which provides standardized descriptions of work activities, skills, and task relevance for a wide range of occupations.
+
+For each selected occupation, representative tasks are identified and grouped into conceptual categories such as routine production, problem-solving, verification, and creative decision-making. Task weights are normalized to reflect their relative contribution to overall occupational output. These weights form the structural foundation of the task-level substitution and augmentation model.
+
+picture
+
+\subsection{Gen-AI Impact and Adoption References}
+
+Estimates of Gen-AI capabilities, adoption trends, and task-level automation potential are informed by prior empirical and conceptual studies, including reports by the McKinsey Global Institute, Frey and Osborne (2017), and subsequent literature on artificial intelligence and labor markets.
+
+These sources are used to guide parameter ranges and scenario design rather than to provide direct numerical inputs. In particular, they inform assumptions regarding which task categories are more susceptible to automation, which are more likely to be augmented, and how adoption rates may evolve over time.
+
+\subsection{Preprocessing and Data Integration}
+
+All data inputs are rescaled and normalized to ensure consistency across sources. Given differences in data granularity and temporal coverage, the model emphasizes relative comparisons and trend analysis over absolute prediction. This approach reduces sensitivity to measurement error while preserving interpretability and policy relevance.The roles of the data sources employed in this study are summarized in Table~\ref{tab:data_sources}.
+\begin{table}
+\centering
+\caption{Data Sources and Their Roles in the Model}
+\label{tab:data_sources}
+\begin{tabular}{p{4cm} p{4cm} p{6cm}}
+\toprule
+\textbf{Data Source} & \textbf{Data Type} & \textbf{Role in Model} \\
+\midrule
+BLS / OECD & Employment statistics & Calibrate relative employment scale and trend \\
+O*NET & Task descriptions and importance & Construct task decomposition and weights \\
+McKinsey, Frey \& Osborne & AI impact assessments & Inform parameter ranges and scenario design \\
+\bottomrule
+\end{tabular}
+\end{table}

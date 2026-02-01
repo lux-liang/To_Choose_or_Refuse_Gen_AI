@@ -1,0 +1,64 @@
+\documentclass[CTeX = true]{mcmthesis} 
+
+\mcmsetup{
+  tstyle=\color{black}\bfseries,
+  tcn = 202600600,
+  problem = F,
+  sheet = true,
+  titleinsheet = true,
+  keywordsinsheet = false,
+  titlepage = false,
+  abstract = true
+}
+
+\usepackage{float}
+\usepackage{txfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\graphicspath{{picture/}}
+
+\title{To Choose or Refuse Gen-AI:\\
+A Data-Driven Analysis of Career Evolution and Educational Strategy}
+\date{}
+
+\begin{document}
+
+% ===== Summary Sheet =====
+\begin{abstract}
+This paper examines how Generative Artificial Intelligence (Gen-AI) reshapes career trajectories in representative STEM, technical, and artistic occupations—software developers, electricians, and illustrators—and how higher education should respond. Using a task-based modeling framework, occupations are decomposed into weighted task units to quantify AI-driven substitution and augmentation effects, which are then aggregated to project employment dynamics and inform educational strategy. Results show that Gen-AI’s impact is governed by verification complexity: beyond a critical adoption threshold, congestion in human verification causes marginal AI benefits to turn negative, leading to employment decline. Targeted educational interventions can shift this threshold outward by strengthening graduates’ verification and oversight capabilities, thereby enhancing long-term employment resilience and guiding differentiated enrollment and curriculum design. 
+
+\textbf{Keywords:} Task Decomposition; Verification Capacity; Employment Resilience
+
+
+\end{abstract}
+
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\input{sections/1.Introduction}
+\newpage
+\input{sections/2.Occupation Selection and Assumptions}
+\newpage
+\input{sections/3.Data Sources and Preprocessing}
+\newpage
+\input{sections/4.Model Development}
+\newpage
+\input{sections/5.Results and Analysis}
+\newpage
+\input{sections/6.Educational Strategy Recommendations}
+\newpage
+\input{sections/7.Beyond Employment Metrics}
+\newpage
+\input{sections/8.Strengths and Limitations}
+\newpage
+\input{sections/9.Conclusion}
+\newpage
+\input{sections/10.References}
+\newpage
+\input{sections/11.AI Usage Report}
+
+\end{document}
